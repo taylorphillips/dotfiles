@@ -3,11 +3,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-fugitive'
 call vundle#end()
 filetype plugin indent on
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|venv'
 let mapleader = ";"
 
 " set background=dark
