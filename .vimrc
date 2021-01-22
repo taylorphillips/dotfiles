@@ -1,11 +1,18 @@
-call pathogen#infect()
-call pathogen#helptags()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdtree'
+call vundle#end()
+filetype plugin indent on
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 let mapleader = ";"
 
-syntax enable
 " set background=dark
-set background=light
+syntax enable
+set background=dark
 colorscheme solarized
 
 runtime! macros/matchit.vim " Load matchit (% to bounce from do to end, etc.)
@@ -67,16 +74,6 @@ nmap <F2> <nop>
 " delete whitespace
 map <F5> :%s/\s\+$//e
 autocmd BufWritePre * :%s/\s\+$//e
-
-"" Command-T
-let g:CommandTMaxFiles=20000 " Increase max number of files index by CommandT
-let g:CommandTMaxHeight=20   " Limit CommandT's menu height to 10
-augroup CommandTExtension    " Refresh command-T on write and focus
-  autocmd!
-  autocmd FocusGained * CommandTFlush
-  autocmd BufWritePost * CommandTFlush
-augroup END
-
 
 " Resize panes
 map <S-Up> :execute Resize('+')<CR>
